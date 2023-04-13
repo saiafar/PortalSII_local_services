@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Control</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/libs/main.css">
+    <style>
+        #content{
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-sm">
+                        <form name="new" id="new" class="form-horizontal" method="get" action="/config/save">
+                            <fieldset>
+                                <legend class="text-center header"><strong>Conexion Base de datos</strong></legend>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="sql_server">Servidor</label>
+                                        <input type="text" class="form-control form-control-sm" value="<%=config.sqlServer%>" name="sql_server" id="sql_server" aria-describedby="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sql_database">Base de Datos</label>
+                                        <input type="text" class="form-control form-control-sm" value="<%=config.sqlDatabase%>" name="sql_database" id="sql_database" aria-describedby="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sql_user">Usuario</label>
+                                        <input type="text" class="form-control form-control-sm" value="<%=config.sqlUser%>" name="sql_user" id="sql_user">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sql_pass">Contraseña</label>
+                                        <input type="password" class="form-control form-control-sm" value="<%=config.sqlPass%>" name="sql_pass" id="sql_pass">
+                                        
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sql_port">Puerto</label>
+                                        <input type="text" class="form-control form-control-sm" value="<%=config.sqlPort%>" name="sql_port" id="sql_port">
+                                    </div>
+            
+                                    
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend class="text-center header"><strong>Servicio de Boleta y Resumen</strong></legend>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="api_server">Servidor</label>
+                                        <input type="text" class="form-control form-control-sm" value="<%=config.apiServer%>" name="api_server" id="api_server" aria-describedby="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="api_user">Usuario</label>
+                                        <input type="text" class="form-control form-control-sm" value="<%=config.apiUser%>" name="api_user" id="api_user" aria-describedby="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="api_pass">Contraseña</label>
+                                        <input type="password" class="form-control form-control-sm" value="<%=config.apiPass%>" name="api_pass" id="api_pass">
+                                        
+                                    </div>
+                                </div>
+                                
+                            </fieldset>
+                            <div class="form-group col-md-12">
+                                <div class=" text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    <script src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script charset="utf-8">
+    
+    $(document).ready(function(){
+        $('#findUSBPrinter').on('click', function(){
+            $.get('/findusb', function(data){
+                console.log(data[0].deviceDescriptor.idVendor, data[0].deviceDescriptor.idProduct);
+
+                $('#vid').val(data[0].deviceDescriptor.idVendor);
+                $('#pid').val(data[0].deviceDescriptor.idProduct);
+            });
+        })
+    });
+
+    </script>
+</body>
+</html>

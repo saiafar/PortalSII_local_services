@@ -1,0 +1,34 @@
+{
+  "name": "portalweb-enviar-boletas",
+  "version": "1.0.0",
+  "description": "servicio para envio de boletas a portalweb",
+  "main": "src/index.js",
+  "scripts": {
+    "start": ".\\node_modules\\electron\\dist\\electron.exe .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --ia32"
+  },
+  "keywords": [],
+  "author": "PortalWeb",
+  "license": "ISC",
+  "build": {
+    "appId": "portal-services",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^7.1.6",
+    "electron-builder": "^21.2.0",
+    "electron-rebuild": "^1.8.8"
+  },
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mssql": "^6.0.1",
+    "node-fetch": "^2.6.0",
+    "tedious": "^8.0.1"
+  }
+}
